@@ -1,30 +1,26 @@
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
+import FooBarFunction from "./components/FooBarFunction.ts";
+import FooBarAnonymous from "./components/FooBarAnonymous.ts";
+import FooBarDefine from "./components/FooBarDefine.ts";
 </script>
 
 <template>
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
-  </div>
-  <HelloWorld msg="Vite + Vue" />
+  <FooBarFunction kind="function" :favourite-number="7" class="foo-bar" />
+
+  <FooBarAnonymous
+    kind="anonymous function"
+    :favourite-number="7"
+    class="foo-bar"
+  />
+
+  <FooBarDefine kind="define" :favourite-number="7" class="foo-bar" />
 </template>
 
 <style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
+.foo-bar {
+  display: grid;
+  max-width: max-content;
+  padding: 1em;
+  border: 1px solid black;
 }
 </style>
